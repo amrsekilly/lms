@@ -7,6 +7,7 @@ import {
   setCurrentVideo,
   setTimeUpdate,
 } from "../../store/action-creators/user";
+import { getCourses } from "../../store/action-creators/courses";
 
 function Video(props) {
   const dispatch = useDispatch();
@@ -86,6 +87,7 @@ function CoursePage() {
   // dispatch(setCurrentVideo(course.videos[0]));
 
   useEffect(() => {
+    dispatch(getCourses());
     return () => {
       const videoContainer = document.getElementById("video-div");
       videoContainer.parentNode.removeChild(videoContainer);
@@ -93,6 +95,7 @@ function CoursePage() {
   }, []);
 
   const renderVideos = () =>
+    course &&
     course.videos.map((video) => (
       <Nav.Link onClick={() => dispatch(setCurrentVideo(video))}>
         {video.title}
