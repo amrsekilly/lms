@@ -1,1 +1,2 @@
 export const SET_CURRENT_VIDEO = "SET_CURRENT_VIDEO";
+export const SET_TIME_UPDATE = "SET_TIME_UPDATE";

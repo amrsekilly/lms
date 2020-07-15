@@ -1,7 +1,8 @@
-import { SET_CURRENT_VIDEO } from "../action-types/user";
+import { SET_CURRENT_VIDEO, SET_TIME_UPDATE } from "../action-types/user";
 
 const initialState = {
   currentVideo: {},
+  timeUpdate: {},
 };
 
 export const user = (state = initialState, action) => {
@@ -10,6 +11,11 @@ export const user = (state = initialState, action) => {
       return {
         ...state,
         currentVideo: action.payload,
+      };
+    case SET_TIME_UPDATE:
+      return {
+        ...state,
+        timeUpdate: action.payload,
       };
     default:
       return state;
