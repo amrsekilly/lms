@@ -11,6 +11,7 @@ export const user = (state = initialState, action) => {
       return {
         ...state,
         currentVideo: action.payload,
+        timeUpdate: {},
       };
     case SET_TIME_UPDATE:
       return {
