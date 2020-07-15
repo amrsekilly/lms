@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
-import { setCourses } from "../../store/action-creators/courses";
+import { setCourses, getCourses } from "../../store/action-creators/courses";
 import Course from "../Course";
 
 class index extends Component {
@@ -9,9 +8,7 @@ class index extends Component {
     this.props.courses.map((course) => <Course {...course} />);
 
   componentDidMount() {
-    axios
-      .get("http://localhost:3000/courses")
-      .then((res) => this.props.setCourses(res.data));
+    this.props.getCourses();
   }
 
   render() {
@@ -30,6 +27,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   setCourses,
+  getCourses,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(index);
